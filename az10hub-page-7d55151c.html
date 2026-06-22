@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于澳洲幸运10 — 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f5f7;
+            color: #1e1e2a;
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0b0d17 0%, #1a1e2f 60%, #121523 100%);
+            padding: 80px 24px 70px;
+            text-align: center;
+            color: #eaeef2;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(249, 184, 62, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 350;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            font-weight: 500;
+            color: #f5c96a;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin: 0 auto;
+            color: #bcc7d4;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+            background-color: #fafbfc;
+            border-radius: 0;
+            flex: 1;
+        }
+
+        .intro {
+            font-size: 1.08rem;
+            margin-bottom: 40px;
+            padding: 0 4px;
+        }
+
+        .intro .first-sentence {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 340;
+            color: #2b3040;
+            margin-bottom: 20px;
+            border-left: 4px solid #d4a44e;
+            padding-left: 18px;
+        }
+
+        .intro p {
+            margin-bottom: 18px;
+            color: #2f3340;
+        }
+
+        .intro a {
+            color: #b7852c;
+            text-decoration: none;
+            font-weight: 480;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .intro a:hover {
+            border-bottom-color: #b7852c;
+            color: #8f6721;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px 32px;
+            margin: 48px 0 40px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 26px 24px;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03), 0 6px 20px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.25s, transform 0.2s;
+            border: 1px solid #eceef2;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1f2332;
+            letter-spacing: 0.3px;
+        }
+
+        .feature-card h3::before {
+            content: '·';
+            color: #d4a44e;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .feature-card p {
+            font-size: 0.96rem;
+            color: #3c4050;
+            line-height: 1.6;
+        }
+
+        .scene-note {
+            margin: 42px 0 38px;
+            padding: 24px 28px;
+            background: #f0f2f6;
+            border-radius: 18px;
+            border-left: 5px solid #d4a44e;
+        }
+
+        .scene-note p {
+            color: #282d3a;
+            font-size: 0.99rem;
+        }
+
+        .scene-note strong {
+            color: #1f2332;
+            font-weight: 520;
+        }
+
+        .faq-mini {
+            margin-top: 48px;
+            border-top: 1px solid #dfe2e8;
+            padding-top: 32px;
+        }
+
+        .faq-mini h4 {
+            font-size: 1.15rem;
+            font-weight: 440;
+            margin-bottom: 20px;
+            color: #1e212d;
+        }
+
+        .faq-item {
+            margin-bottom: 18px;
+        }
+
+        .faq-item .q {
+            font-weight: 480;
+            color: #282d3a;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .faq-item .a {
+            color: #4b4f5e;
+            font-size: 0.94rem;
+            padding-left: 6px;
+        }
+
+        .closing {
+            margin-top: 52px;
+            padding: 28px 0 12px;
+            text-align: center;
+            font-size: 0.98rem;
+            color: #4f5362;
+            border-top: 1px solid #e4e6ec;
+        }
+
+        .closing a {
+            color: #b7852c;
+            text-decoration: none;
+            font-weight: 460;
+        }
+
+        .closing a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-note {
+            margin-top: 12px;
+            font-size: 0.88rem;
+            color: #72768a;
+        }
+
+        @media (max-width: 680px) {
+            .hero {
+                padding: 56px 20px 50px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 0.97rem;
+            }
+
+            .container {
+                padding: 32px 20px 44px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .feature-card {
+                padding: 20px 18px;
+            }
+
+            .intro .first-sentence {
+                font-size: 1.2rem;
+            }
+
+            .scene-note {
+                padding: 18px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>关于<span>澳洲幸运10</span></h1>
+        <p>一段简洁的叙述，关于稳定、入口、以及页面本身的故事。</p>
+    </div>
+
+    <div class="container">
+        <div class="intro">
+            <span class="first-sentence">那是一个平常的午后，有人问起：你通常从哪里进入这个数字世界？</span>
+            <p>
+                许多事情到最后，都会归结为一个简单的入口。对于经常关注<a href="https://az10hub.com">澳洲幸运10</a>的人而言，这个入口应当清晰、直接，不绕路，也不需要反复确认。页面本身就承担着这样的角色——它不是你寻找的终点，而是你每一次开始的地方。
+            </p>
+            <p>
+                从打开页面的第一秒开始，你希望看到的是什么？不是浮夸的欢迎词，不是故作热闹的装饰，而是简洁的引导、克制的提示，以及一个能让你安心停留的界面。这也是我们一直尝试去靠近的状态。
+            </p>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3>稳定的叙述感</h3>
+                <p>页面结构保持一致的呼吸节奏，文字与留白相互衬托，不急于填满每一个角落。</p>
+            </div>
+            <div class="feature-card">
+                <h3>入口即核心</h3>
+                <p>所有路径最终都指向同一个地方，而那个地方本身就已经足够完整。</p>
+            </div>
+            <div class="feature-card">
+                <h3>克制的强调色</h3>
+                <p>链接与重点内容使用暖色点缀，既不喧宾夺主，又能自然引导视觉流动。</p>
+            </div>
+            <div class="feature-card">
+                <h3>内容随视角变化</h3>
+                <p>每次打开，可能都会读到不一样的段落。这并非偶然，而是刻意保留的呼吸空间。</p>
+            </div>
+        </div>
+
+        <div class="scene-note">
+            <p><strong>关于场景</strong> — 或许是午后，或许是深夜。你打开书签栏，点开熟悉的链接，页面缓缓加载。没有弹窗，没有横幅。你只是顺着文字往下看，然后知道自己接下来要做什么。这种体验，本身就是一种入口的仪式感。</p>
+        </div>
+
+        <div class="faq-mini">
+            <h4>常见想法 · 简短对应</h4>
+            <div class="faq-item">
+                <span class="q">这个页面会一直保持这个风格吗？</span>
+                <span class="a">不一定，每次打开都可能有些细小的变化，但稳定和克制是底色。</span>
+            </div>
+            <div class="faq-item">
+                <span class="q">链接是直接指向哪里？</span>
+                <span class="a">指向一个清晰的位置：<a href="https://az10hub.com">澳洲幸运10</a>，除此之外没有多余的跳转。</span>
+            </div>
+            <div class="faq-item">
+                <span class="q">内容会更新吗？</span>
+                <span class="a">页面结构和叙述角度会随着每次生成而重新组织，但始终围绕同一个核心入口展开。</span>
+            </div>
+        </div>
+
+        <div class="closing">
+            <p>每一次叙述，都是一次温和的靠近。如果你需要回到那个熟悉的起点，<a href="https://az10hub.com">澳洲幸运10</a>始终在那里。</p>
+            <div class="footer-note">— 页面本身也是入口的一部分 —</div>
+        </div>
+    </div>
+</body>
+</html>
